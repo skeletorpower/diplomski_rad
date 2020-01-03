@@ -4,6 +4,8 @@ from django.db import models
 class Animation(models.Model):
     name = models.CharField(max_length=50)
     time = models.IntegerField()
+    likes = models.IntegerField(default = 1) 
+    dislikes = models.IntegerField(default = 0)
 
     def __str__(self):
         return self.name
@@ -23,11 +25,3 @@ class KeyFrame(models.Model):
     def __str__(self):
         return "It's a key frame on "+str(self.key_frame)+" position with value of "+str(self.value)
 
-class Like(models.Model):
-    animationId = models.ForeignKey(Animation, on_delete=models.CASCADE)
-    like = models.IntegerField()
-
-class Dislike(models.Model):
-    animationId = models.ForeignKey(Animation, on_delete=models.CASCADE)
-    dislike = models.IntegerField()
-    

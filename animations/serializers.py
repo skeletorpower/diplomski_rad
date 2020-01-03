@@ -10,4 +10,4 @@ class AnimationSerializer(serializers.ModelSerializer):
     keyframes = KeyFrameSerializer(many=True)
     class Meta:
         model = Animation
-        fields = ['id','name','time',"keyframes"]
+        fields = ['id','name','time', 'likes', 'dislikes', "keyframes"]
